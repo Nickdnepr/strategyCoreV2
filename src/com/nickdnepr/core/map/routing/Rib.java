@@ -4,29 +4,31 @@ import com.nickdnepr.core.map.Point;
 
 public class Rib {
 
-    private Point source;
-    private Point destination;
+    private String qualifier;
+    private GraphPoint source;
+    private GraphPoint destination;
     private double price;
 
-    public Rib(Point source, Point destination, double price) {
+    public Rib(GraphPoint source, GraphPoint destination, double price) {
+        this.qualifier = source.getQualifier() + "->" + destination.getQualifier();
         this.source = source;
         this.destination = destination;
         this.price = price;
     }
 
-    public Point getSource() {
+    public GraphPoint getSource() {
         return source;
     }
 
-    public void setSource(Point source) {
+    public void setSource(GraphPoint source) {
         this.source = source;
     }
 
-    public Point getDestination() {
+    public GraphPoint getDestination() {
         return destination;
     }
 
-    public void setDestination(Point destination) {
+    public void setDestination(GraphPoint destination) {
         this.destination = destination;
     }
 
@@ -36,5 +38,9 @@ public class Rib {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getQualifier() {
+        return qualifier;
     }
 }
