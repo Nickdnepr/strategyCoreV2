@@ -3,6 +3,7 @@ package com.nickdnepr.core.map.routing;
 import com.nickdnepr.core.map.Point;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GraphPoint {
 
@@ -48,5 +49,18 @@ public class GraphPoint {
         }
         inRibs.add(rib);
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GraphPoint point = (GraphPoint) o;
+        return Objects.equals(qualifier, point.qualifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(qualifier);
     }
 }

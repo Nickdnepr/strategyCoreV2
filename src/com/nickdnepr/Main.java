@@ -4,14 +4,34 @@ import com.nickdnepr.core.map.Point;
 import com.nickdnepr.core.map.Relief;
 import com.nickdnepr.core.map.ReliefMap;
 import com.nickdnepr.core.map.routing.Graph;
+import com.nickdnepr.core.map.routing.GraphPoint;
 import com.nickdnepr.core.map.routing.Rib;
 import com.nickdnepr.core.models.Equipment;
 import com.nickdnepr.core.models.Unit;
 import com.nickdnepr.core.models.Weapon;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Main {
 
     public static void main(String[] args) {
+
+        HashMap<String, GraphPoint> map = new HashMap<>();
+        GraphPoint point = new GraphPoint(new Point(0,0,Relief.EARTH));
+        GraphPoint point2 = new GraphPoint(new Point(0,0,Relief.EARTH));
+
+        map.put("a", point);
+
+        Rib rib1 = new Rib(point, point2,2);
+        Rib rib2 = new Rib(point, point2,2);
+
+        ArrayList<Rib> ribs = new ArrayList<>();
+        ribs.add(rib1);
+        System.out.println(ribs.contains(rib2));
+
+//        System.out.println(map.containsValue(point2));
+
 //        testUnits();
 //        testMap();
         testGraph();
